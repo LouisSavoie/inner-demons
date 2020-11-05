@@ -25,6 +25,7 @@ body {
 }
 
 .bar {
+    height: 0%;
     width: 100%;
     background: red;
 }
