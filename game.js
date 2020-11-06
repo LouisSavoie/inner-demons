@@ -22,8 +22,71 @@ const fearButton = document.getElementById("fear-button");
 const greedButton = document.getElementById("greed-button");
 const angerButton = document.getElementById("anger-button");
 
-// TEST BUTTON CLICK EVENT
-fearButton.addEventListener("click", function(){increaseBar(fearDamageBar);});
+// CHOICES
+let playerChoice = 0;
+let demonChoice = 0;
+
+// BUTTON CLICK EVENTS
+fearButton.addEventListener("click", function(){
+    playerChoice = 0;
+    runRound();
+});
+
+greedButton.addEventListener("click", function(){
+    playerChoice = 1;
+    runRound();
+});
+
+angerButton.addEventListener("click", function(){
+    playerChoice = 2;
+    runRound();
+});
+
+// RUN ROUND
+function runRound(){
+    demonRoll();
+    let result = resolve();
+    if (result){
+        right();
+    } else {
+        wrong();
+    }
+};
+
+// DEMON ROLL
+function demonRoll(){
+    demonChoice = Math.floor(Math.random() * 3);
+};
+
+// RESOLVE
+function resolve(){
+    if(playerChoice == demonChoice){
+        return true;
+    }
+    return false;
+};
+
+// RIGHT
+function right(){
+    if(playerChoice == 0){
+        increaseBar(fearDamageBar);
+    } else if(playerChoice == 1){
+        increaseBar(greedDamageBar);
+    } else {
+        increaseBar(angerDamageBar);
+    }
+};
+
+// WRONG
+function wrong(){
+    if(demonChoice == 0){
+        increaseBar(fearGripBar);
+    } else if(demonChoice == 1){
+        increaseBar(greedGripBar);
+    } else {
+        increaseBar(angerGripBar);
+    }
+};
 
 // INCREASE A BAR
 function increaseBar(bar) {
