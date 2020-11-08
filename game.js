@@ -1,43 +1,47 @@
-// METERS AND BARS
-const fearDamageMeter = document.getElementById("fear-damage-meter");
-const fearDamageBar = document.getElementById("fear-damage-bar");
+// DOM ELEMENTS
 
-const fearGripMeter = document.getElementById("fear-grip-meter");
-const fearGripBar = document.getElementById("fear-grip-bar");
-
-const greedDamageMeter = document.getElementById("greed-damage-meter");
-const greedDamageBar = document.getElementById("greed-damage-bar");
-
-const greedGripMeter = document.getElementById("greed-grip-meter");
-const greedGripBar = document.getElementById("greed-grip-bar");
-
-const angerDamageMeter = document.getElementById("anger-damage-meter");
-const angerDamageBar = document.getElementById("anger-damage-bar");
-
-const angerGripMeter = document.getElementById("anger-grip-meter");
-const angerGripBar = document.getElementById("anger-grip-bar");
+// BARS
+const fearBarDOM = document.getElementById("fear-bar");
+const greedBarDOM = document.getElementById("greed-bar");
+const angerBarDOM = document.getElementById("anger-bar");
 
 // BUTTONS
-const fearButton = document.getElementById("fear-button");
-const greedButton = document.getElementById("greed-button");
-const angerButton = document.getElementById("anger-button");
+const fearButtonDOM = document.getElementById("fear-button");
+const greedButtonDOM = document.getElementById("greed-button");
+const angerButtonDOM = document.getElementById("anger-button");
+
+// VARIABLES
+
+// BAR STATUSES
+let fearStatus = 5;
+let greedStatus = 5;
+let angerStatus = 5;
 
 // CHOICES
 let playerChoice = 0;
 let demonChoice = 0;
 
+// BARS SETUP
+function setup(){
+    fearBarDOM.style.height = "50%";
+    greedBarDOM.style.height = "50%";
+    angerBarDOM.style.height = "50%";
+};
+
+setup();
+
 // BUTTON CLICK EVENTS
-fearButton.addEventListener("click", function(){
+fearButtonDOM.addEventListener("click", function(){
     playerChoice = 0;
     runRound();
 });
 
-greedButton.addEventListener("click", function(){
+greedButtonDOM.addEventListener("click", function(){
     playerChoice = 1;
     runRound();
 });
 
-angerButton.addEventListener("click", function(){
+angerButtonDOM.addEventListener("click", function(){
     playerChoice = 2;
     runRound();
 });
@@ -68,30 +72,38 @@ function resolve(){
 
 // RIGHT
 function right(){
-    if(playerChoice == 0){
-        increaseBar(fearDamageBar);
-    } else if(playerChoice == 1){
-        increaseBar(greedDamageBar);
-    } else {
-        increaseBar(angerDamageBar);
+    if(playerChoice == 0 && fearStatus >= 1){
+        fearStatus--;
+        decreaseBar(fearBarDOM, fearStatus);
+    } else if(playerChoice == 1 && fearStatus >= 1){
+        greedStatus--;
+        decreaseBar(greedBarDOM, greedStatus);
+    } else if(playerChoice == 2 && angerStatus >= 1){
+        angerStatus--;
+        decreaseBar(angerBarDOM, angerStatus);
     }
 };
 
 // WRONG
 function wrong(){
-    if(demonChoice == 0){
-        increaseBar(fearGripBar);
-    } else if(demonChoice == 1){
-        increaseBar(greedGripBar);
-    } else {
-        increaseBar(angerGripBar);
+    if(demonChoice == 0 && fearStatus <= 9){
+        fearStatus++;
+        increaseBar(fearBarDOM, fearStatus);
+    } else if(demonChoice == 1 && greedStatus <= 9){
+        greedStatus++;
+        increaseBar(greedBarDOM, greedStatus);
+    } else if(demonChoice == 2 && angerStatus <= 9){
+        angerStatus++;
+        increaseBar(angerBarDOM, angerStatus);
     }
 };
 
 // INCREASE A BAR
-function increaseBar(bar) {
-    let newClass = "bar" + String(parseInt(bar.classList[1].charAt(3)) + 1);
+function increaseBar(bar, status) {
+    bar.style.height = String(status * 10) + "%";
+};
 
-    bar.classList.remove("bar0", "bar1", "bar2", "bar3", "bar4", "bar5", "bar6", "bar7", "bar8", "bar9");
-    bar.classList.add(newClass);
+// DECREASE A BAR
+function decreaseBar(bar, status) {
+    bar.style.height = String(status * 10) + "%";
 };
