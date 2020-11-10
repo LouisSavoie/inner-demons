@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    width: 200px;
+    padding: 16px;
+}
+
+#meters {
+    padding: 0 0 16px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.meter {
+    margin: 1px;
+    height: 100px;
+    width: 20px;
+    border: 3px solid black;
+    display: flex;
+    align-items: flex-end;
+}
+
+.bar {
+    height: 0%;
+    width: 100%;
+    background: red;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    margin: 0;
+    width: 65px;
+}
