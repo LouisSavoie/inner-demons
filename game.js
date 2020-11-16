@@ -1,36 +1,54 @@
 // DOM ELEMENTS
 
+// SCREENS
+const titleDOM = document.getElementById("title");
+const infoDOM = document.getElementById("info");
+const battleDOM = document.getElementById("battle");
+const winDOM = document.getElementById("win");
+const loseDOM = document.getElementById("lose");
+
 // BARS
 const fearBarDOM = document.getElementById("fear-bar");
 const greedBarDOM = document.getElementById("greed-bar");
 const angerBarDOM = document.getElementById("anger-bar");
 
 // BUTTONS
+const playButtonTitleDOM = document.getElementById("play-button-title");
+const playButtonInfoDOM = document.getElementById("play-button-info");
+
 const fearButtonDOM = document.getElementById("fear-button");
 const greedButtonDOM = document.getElementById("greed-button");
 const angerButtonDOM = document.getElementById("anger-button");
 
+const playButtonWinDOM = document.getElementById("play-button-win");
+const playButtonLoseDOM = document.getElementById("play-button-lose");
+
+//------------------------------------------------------------------
+
 // VARIABLES
 
 // BAR STATUSES
-let fearStatus = 5;
-let greedStatus = 5;
-let angerStatus = 5;
+let fearStatus = 2;
+let greedStatus = 2;
+let angerStatus = 2;
 
 // CHOICES
 let playerChoice = 0;
 let demonChoice = 0;
 
-// BARS SETUP
-function setup(){
-    fearBarDOM.style.height = "50%";
-    greedBarDOM.style.height = "50%";
-    angerBarDOM.style.height = "50%";
-};
-
-setup();
+//------------------------------------------------------------------
 
 // BUTTON CLICK EVENTS
+
+playButtonTitleDOM.addEventListener("click", function(){
+    titleDOM.style.display = "none";
+    infoDOM.style.display = "unset";
+});
+
+playButtonInfoDOM.addEventListener("click", function(){
+    battleSetup();
+});
+
 fearButtonDOM.addEventListener("click", function(){
     playerChoice = 0;
     runRound();
@@ -46,14 +64,50 @@ angerButtonDOM.addEventListener("click", function(){
     runRound();
 });
 
+playButtonWinDOM.addEventListener("click", function(){
+    battleSetup();
+});
+
+playButtonLoseDOM.addEventListener("click", function(){
+    battleSetup();
+});
+
+//------------------------------------------------------------------
+
+// BATTLE SETUP
+function battleSetup(){
+    infoDOM.style.display = "none";
+    winDOM.style.display = "none";
+    loseDOM.style.display = "none";
+    fearBarDOM.style.backgroundColor = "yellow";
+    fearBarDOM.style.height = "50%";
+    fearStatus = 2;
+    greedBarDOM.style.backgroundColor = "yellow";
+    greedBarDOM.style.height = "50%";
+    greedStatus = 2;
+    angerBarDOM.style.backgroundColor = "yellow";
+    angerBarDOM.style.height = "50%";
+    angerStatus = 2;
+    battleDOM.style.display = "unset";
+};
+
+//------------------------------------------------------------------
+
+// BATTLE FUNCTIONS
+
 // RUN ROUND
 function runRound(){
     demonRoll();
-    let result = resolve();
-    if (result){
+    if (resolve()){
         right();
     } else {
         wrong();
+    }
+    if(checkWin()){
+        runWin();
+    }
+    if(checkLose()){
+        runLose();
     }
 };
 
@@ -86,13 +140,13 @@ function right(){
 
 // WRONG
 function wrong(){
-    if(demonChoice == 0 && fearStatus <= 9){
+    if(demonChoice == 0 && fearStatus <= 3){
         fearStatus++;
         increaseBar(fearBarDOM, fearStatus);
-    } else if(demonChoice == 1 && greedStatus <= 9){
+    } else if(demonChoice == 1 && greedStatus <= 3){
         greedStatus++;
         increaseBar(greedBarDOM, greedStatus);
-    } else if(demonChoice == 2 && angerStatus <= 9){
+    } else if(demonChoice == 2 && angerStatus <= 3){
         angerStatus++;
         increaseBar(angerBarDOM, angerStatus);
     }
@@ -100,10 +154,51 @@ function wrong(){
 
 // INCREASE A BAR
 function increaseBar(bar, status) {
-    bar.style.height = String(status * 10) + "%";
+    bar.style.height = String(status * 25) + "%";
+    barColor(bar, status);
 };
 
 // DECREASE A BAR
 function decreaseBar(bar, status) {
-    bar.style.height = String(status * 10) + "%";
+    bar.style.height = String(status * 25) + "%";
+    barColor(bar, status);
+};
+
+// CHANGE BAR COLOR
+function barColor(bar, status){
+    if(status <= 1){
+        bar.style.backgroundColor = "red";
+    } else if(status >= 3){
+        bar.style.backgroundColor = "limegreen";
+    } else {
+        bar.style.backgroundColor = "yellow";
+    }
+};
+
+// CHECK FOR WIN
+function checkWin(){
+    if(fearStatus == 0 && greedStatus == 0 && angerStatus == 0){
+        return true;
+    }
+    return false;
+};
+
+// CHECK FOR LOSE
+function checkLose(){
+    if(fearStatus == 4 && greedStatus == 4 && angerStatus == 4){
+        return true;
+    }
+    return false;
+};
+
+// RUN WIN
+function runWin(){
+    battleDOM.style.display = "none";
+    winDOM.style.display = "unset";
+};
+
+// RUN LOSE
+function runLose(){
+    battleDOM.style.display = "none";
+    loseDOM.style.display = "unset";
 };

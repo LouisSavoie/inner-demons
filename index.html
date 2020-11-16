@@ -13,26 +13,55 @@
     </head>
     <body>
 
-        <div id="meters">
+        <div id="game-screen">
 
-            <div id="fear-meter" class="meter">
-                <div id="fear-bar" class="bar"></div>
+            <div id="title">
+                <h1>INNER DEMONS</h1>
+                <img src="favicon_io/favicon-32x32.png" alt="Inner Demons">
+                <button id="play-button-title"><strong>PLAY?</strong></button>
             </div>
 
-            <div id="greed-meter" class="meter">
-                <div id="greed-bar" class="bar"></div>
-            </div>
-
-            <div id="anger-meter" class="meter">
-                <div id="anger-bar" class="bar"></div>
+            <div id="info">
+                <p>You are meditate. Demons attack, guard you from them.</p>
+                <p>Guess correct to make damage or demon attack tighten grasp of you.</p>
+                <p>Kill all demon to win. 3 demon have full grasp you lose.</p>
+                <button id="play-button-info"><strong>TO BATTLE!</strong></button>
             </div>
             
-        </div>
+            <div id="battle">
+                <div id="meters">
+    
+                    <div id="fear-meter" class="meter">
+                        <div id="fear-bar" class="bar"></div>
+                    </div>
         
-        <div id="buttons">
-            <button id="fear-button">Fear</button>
-            <button id="greed-button">Greed</button>
-            <button id="anger-button">Anger</button>
+                    <div id="greed-meter" class="meter">
+                        <div id="greed-bar" class="bar"></div>
+                    </div>
+        
+                    <div id="anger-meter" class="meter">
+                        <div id="anger-bar" class="bar"></div>
+                    </div>
+                    
+                </div>
+                
+                <div id="buttons">
+                    <button id="fear-button"><strong>Fear</strong></button>
+                    <button id="greed-button"><strong>Greed</strong></button>
+                    <button id="anger-button"><strong>Anger</strong></button>
+                </div>
+            </div>
+    
+            <div id="win">
+                <p>YOU WIN!</p>
+                <button id="play-button-win"><strong>Play Again?</strong></button>
+            </div>
+    
+            <div id="lose">
+                <p>YOU LOSE</p>
+                <button id="play-button-lose"><strong>Play Again?</strong></button>
+            </div>
+
         </div>
 
         <!-- GAME JAVASCRIPT -->

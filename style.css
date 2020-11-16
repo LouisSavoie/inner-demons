@@ -1,36 +1,185 @@
 body {
     margin: 0;
-    width: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#game-screen {
+    width: 400px;
+    max-width: 400px;
+    height: 400px;
+    max-height: 400px;
     padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    overflow: hidden;
+}
+
+/* TITLE SCREEN */
+
+#title {
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    color: red;
+}
+
+#title img {
+    margin: 0 auto 0 auto;
+    height: 140px;
+    display: block;
+}
+
+#play-button-title {
+    width: 60%;
+    border: 6px solid white;
+    outline: none;
+}
+
+#play-button-title:hover {
+    border: 6px solid red;
+    color: red;
+}
+
+/* INFO SCREEN */
+
+#info {
+    text-align: center;
+    display: none;
+}
+
+#info p {
+    font-size: 1.5rem;
+    color: white;
+}
+
+#play-button-info {
+    width: 80%;
+    border: 6px solid white;
+    outline: none;
+}
+
+#play-button-info:hover {
+    border: 6px solid red;
+    color: red;
+}
+
+/* BATTLE SCREEN */
+
+#battle {
+    display: none;
 }
 
 #meters {
-    padding: 0 0 16px 0;
+    padding: 0;
     display: flex;
     justify-content: space-around;
 }
 
 .meter {
-    margin: 1px;
-    height: 100px;
-    width: 20px;
-    border: 3px solid black;
+    margin: 2rem;
+    height: 200px;
+    width: 40px;
     display: flex;
     align-items: flex-end;
+    background: black;
+}
+
+#fear-meter {
+    border: 6px solid purple;
+}
+
+#greed-meter {
+    border: 6px solid gold;
+}
+
+#anger-meter {
+    border: 6px solid rgb(202, 30, 30);
 }
 
 .bar {
     height: 0%;
     width: 100%;
-    background: red;
+    background: yellow;
 }
 
 #buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 button {
     margin: 0;
-    width: 65px;
+    width: 100px;
+    background: black;
+    line-height: 2;
+    font-size: 1.5rem;
+    color: white;
+}
+
+#fear-button {
+    border: 6px solid purple;
+    outline: none;
+}
+
+#greed-button {
+    border: 6px solid gold;
+    outline: none;
+}
+
+#anger-button {
+    border: 6px solid rgb(202, 30, 30);
+    outline: none;
+}
+
+/* WIN SCREEN */
+
+#win {
+    display: none;
+    text-align: center;
+}
+
+#win p {
+    margin: 0 0 2rem 0;
+    font-size: 4rem;
+    color: limegreen;
+}
+
+#play-button-win {
+    width: 80%;
+    border: 6px solid white;
+    outline: none;
+}
+
+#play-button-win:hover {
+    border: 6px solid red;
+    color: red;
+}
+
+/* LOSE SCREEN */
+
+#lose {
+    display: none;
+    text-align: center;
+}
+
+#lose p {
+    margin: 0 0 2rem 0;
+    font-size: 4rem;
+    color: red;
+}
+
+#play-button-lose {
+    width: 80%;
+    border: 6px solid white;
+    outline: none;
+}
+
+#play-button-lose:hover {
+    border: 6px solid red;
+    color: red;
 }
