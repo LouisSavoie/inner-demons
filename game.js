@@ -1,6 +1,7 @@
 // DOM ELEMENTS
 
 // SCREENS
+const titleDOM = document.getElementById("title");
 const battleDOM = document.getElementById("battle");
 const winDOM = document.getElementById("win");
 const loseDOM = document.getElementById("lose");
@@ -11,6 +12,8 @@ const greedBarDOM = document.getElementById("greed-bar");
 const angerBarDOM = document.getElementById("anger-bar");
 
 // BUTTONS
+const playButtonTitleDOM = document.getElementById("play-button-title");
+
 const fearButtonDOM = document.getElementById("fear-button");
 const greedButtonDOM = document.getElementById("greed-button");
 const angerButtonDOM = document.getElementById("anger-button");
@@ -34,6 +37,10 @@ let demonChoice = 0;
 //------------------------------------------------------------------
 
 // BUTTON CLICK EVENTS
+
+playButtonTitleDOM.addEventListener("click", function(){
+    battleSetup();
+});
 
 fearButtonDOM.addEventListener("click", function(){
     playerChoice = 0;
@@ -62,6 +69,7 @@ playButtonLoseDOM.addEventListener("click", function(){
 
 // BATTLE SETUP
 function battleSetup(){
+    titleDOM.style.display = "none";
     winDOM.style.display = "none";
     loseDOM.style.display = "none";
     fearBarDOM.style.backgroundColor = "yellow";
@@ -75,8 +83,6 @@ function battleSetup(){
     angerStatus = 5;
     battleDOM.style.display = "unset";
 };
-
-battleSetup();
 
 //------------------------------------------------------------------
 
