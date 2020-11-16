@@ -2,6 +2,7 @@
 
 // SCREENS
 const titleDOM = document.getElementById("title");
+const infoDOM = document.getElementById("info");
 const battleDOM = document.getElementById("battle");
 const winDOM = document.getElementById("win");
 const loseDOM = document.getElementById("lose");
@@ -13,6 +14,7 @@ const angerBarDOM = document.getElementById("anger-bar");
 
 // BUTTONS
 const playButtonTitleDOM = document.getElementById("play-button-title");
+const playButtonInfoDOM = document.getElementById("play-button-info");
 
 const fearButtonDOM = document.getElementById("fear-button");
 const greedButtonDOM = document.getElementById("greed-button");
@@ -39,6 +41,11 @@ let demonChoice = 0;
 // BUTTON CLICK EVENTS
 
 playButtonTitleDOM.addEventListener("click", function(){
+    titleDOM.style.display = "none";
+    infoDOM.style.display = "unset";
+});
+
+playButtonInfoDOM.addEventListener("click", function(){
     battleSetup();
 });
 
@@ -69,7 +76,7 @@ playButtonLoseDOM.addEventListener("click", function(){
 
 // BATTLE SETUP
 function battleSetup(){
-    titleDOM.style.display = "none";
+    infoDOM.style.display = "none";
     winDOM.style.display = "none";
     loseDOM.style.display = "none";
     fearBarDOM.style.backgroundColor = "yellow";
