@@ -4,6 +4,8 @@ body {
     padding: 16px;
 }
 
+/* BATTLE SCREEN */
+
 #meters {
     padding: 0 0 16px 0;
     display: flex;
@@ -33,4 +35,16 @@ body {
 button {
     margin: 0;
     width: 65px;
+}
+
+/* WIN SCREEN */
+
+#win {
+    display: none;
+}
+
+/* LOSE SCREEN */
+
+#lose {
+    display: none;
 }

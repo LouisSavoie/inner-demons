@@ -13,26 +13,38 @@
     </head>
     <body>
 
-        <div id="meters">
+        <div id="battle">
+            <div id="meters">
 
-            <div id="fear-meter" class="meter">
-                <div id="fear-bar" class="bar"></div>
-            </div>
-
-            <div id="greed-meter" class="meter">
-                <div id="greed-bar" class="bar"></div>
-            </div>
-
-            <div id="anger-meter" class="meter">
-                <div id="anger-bar" class="bar"></div>
+                <div id="fear-meter" class="meter">
+                    <div id="fear-bar" class="bar"></div>
+                </div>
+    
+                <div id="greed-meter" class="meter">
+                    <div id="greed-bar" class="bar"></div>
+                </div>
+    
+                <div id="anger-meter" class="meter">
+                    <div id="anger-bar" class="bar"></div>
+                </div>
+                
             </div>
             
+            <div id="buttons">
+                <button id="fear-button">Fear</button>
+                <button id="greed-button">Greed</button>
+                <button id="anger-button">Anger</button>
+            </div>
         </div>
-        
-        <div id="buttons">
-            <button id="fear-button">Fear</button>
-            <button id="greed-button">Greed</button>
-            <button id="anger-button">Anger</button>
+
+        <div id="win">
+            <p>YOU WIN!</p>
+            <button id="play-button-win">Play Again?</button>
+        </div>
+
+        <div id="lose">
+            <p>YOU LOSE</p>
+            <button id="play-button-lose">Play Again?</button>
         </div>
 
         <!-- GAME JAVASCRIPT -->

@@ -1,5 +1,10 @@
 // DOM ELEMENTS
 
+// SCREENS
+const battleDOM = document.getElementById("battle");
+const winDOM = document.getElementById("win");
+const loseDOM = document.getElementById("lose");
+
 // BARS
 const fearBarDOM = document.getElementById("fear-bar");
 const greedBarDOM = document.getElementById("greed-bar");
@@ -9,6 +14,11 @@ const angerBarDOM = document.getElementById("anger-bar");
 const fearButtonDOM = document.getElementById("fear-button");
 const greedButtonDOM = document.getElementById("greed-button");
 const angerButtonDOM = document.getElementById("anger-button");
+
+const playButtonWinDOM = document.getElementById("play-button-win");
+const playButtonLoseDOM = document.getElementById("play-button-lose");
+
+//------------------------------------------------------------------
 
 // VARIABLES
 
@@ -21,16 +31,10 @@ let angerStatus = 5;
 let playerChoice = 0;
 let demonChoice = 0;
 
-// BARS SETUP
-function setup(){
-    fearBarDOM.style.height = "50%";
-    greedBarDOM.style.height = "50%";
-    angerBarDOM.style.height = "50%";
-};
-
-setup();
+//------------------------------------------------------------------
 
 // BUTTON CLICK EVENTS
+
 fearButtonDOM.addEventListener("click", function(){
     playerChoice = 0;
     runRound();
@@ -46,14 +50,48 @@ angerButtonDOM.addEventListener("click", function(){
     runRound();
 });
 
+playButtonWinDOM.addEventListener("click", function(){
+    battleSetup();
+});
+
+playButtonLoseDOM.addEventListener("click", function(){
+    battleSetup();
+});
+
+//------------------------------------------------------------------
+
+// BATTLE SETUP
+function battleSetup(){
+    winDOM.style.display = "none";
+    loseDOM.style.display = "none";
+    fearBarDOM.style.height = "50%";
+    fearStatus = 5;
+    greedBarDOM.style.height = "50%";
+    greedStatus = 5;
+    angerBarDOM.style.height = "50%";
+    angerStatus = 5;
+    battleDOM.style.display = "unset";
+};
+
+battleSetup();
+
+//------------------------------------------------------------------
+
+// BATTLE FUNCTIONS
+
 // RUN ROUND
 function runRound(){
     demonRoll();
-    let result = resolve();
-    if (result){
+    if (resolve()){
         right();
     } else {
         wrong();
+    }
+    if(checkWin()){
+        runWin();
+    }
+    if(checkLose()){
+        runLose();
     }
 };
 
@@ -106,4 +144,32 @@ function increaseBar(bar, status) {
 // DECREASE A BAR
 function decreaseBar(bar, status) {
     bar.style.height = String(status * 10) + "%";
+};
+
+// CHECK FOR WIN
+function checkWin(){
+    if(fearStatus == 0 && greedStatus == 0 && angerStatus == 0){
+        return true;
+    }
+    return false;
+};
+
+// CHECK FOR LOSE
+function checkLose(){
+    if(fearStatus == 10 && greedStatus == 10 && angerStatus == 10){
+        return true;
+    }
+    return false;
+};
+
+// RUN WIN
+function runWin(){
+    battleDOM.style.display = "none";
+    winDOM.style.display = "unset";
+};
+
+// RUN LOSE
+function runLose(){
+    battleDOM.style.display = "none";
+    loseDOM.style.display = "unset";
 };
