@@ -64,10 +64,13 @@ playButtonLoseDOM.addEventListener("click", function(){
 function battleSetup(){
     winDOM.style.display = "none";
     loseDOM.style.display = "none";
+    fearBarDOM.style.backgroundColor = "yellow";
     fearBarDOM.style.height = "50%";
     fearStatus = 5;
+    greedBarDOM.style.backgroundColor = "yellow";
     greedBarDOM.style.height = "50%";
     greedStatus = 5;
+    angerBarDOM.style.backgroundColor = "yellow";
     angerBarDOM.style.height = "50%";
     angerStatus = 5;
     battleDOM.style.display = "unset";
@@ -139,11 +142,24 @@ function wrong(){
 // INCREASE A BAR
 function increaseBar(bar, status) {
     bar.style.height = String(status * 10) + "%";
+    barColor(bar, status);
 };
 
 // DECREASE A BAR
 function decreaseBar(bar, status) {
     bar.style.height = String(status * 10) + "%";
+    barColor(bar, status);
+};
+
+// CHANGE BAR COLOR
+function barColor(bar, status){
+    if(status <= 3){
+        bar.style.backgroundColor = "red";
+    } else if(status >= 7){
+        bar.style.backgroundColor = "limegreen";
+    } else {
+        bar.style.backgroundColor = "yellow";
+    }
 };
 
 // CHECK FOR WIN

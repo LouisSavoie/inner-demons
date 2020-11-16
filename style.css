@@ -1,10 +1,21 @@
 body {
     margin: 0;
-    width: 200px;
-    padding: 16px;
 }
 
 /* BATTLE SCREEN */
+
+#game-screen {
+    width: 200px;
+    max-width: 200px;
+    height: 200px;
+    max-height: 200px;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    overflow: hidden;
+}
 
 #meters {
     padding: 0 0 16px 0;
@@ -16,15 +27,27 @@ body {
     margin: 1px;
     height: 100px;
     width: 20px;
-    border: 3px solid black;
     display: flex;
     align-items: flex-end;
+    background: black;
+}
+
+#fear-meter {
+    border: 3px solid purple;
+}
+
+#greed-meter {
+    border: 3px solid gold;
+}
+
+#anger-meter {
+    border: 3px solid rgb(202, 30, 30);
 }
 
 .bar {
     height: 0%;
     width: 100%;
-    background: red;
+    background: yellow;
 }
 
 #buttons {
@@ -35,16 +58,69 @@ body {
 button {
     margin: 0;
     width: 65px;
+    background: black;
+    color: white;
+}
+
+#fear-button {
+    border: 2px solid purple;
+    outline: none;
+}
+
+#greed-button {
+    border: 2px solid gold;
+    outline: none;
+}
+
+#anger-button {
+    border: 2px solid rgb(202, 30, 30);
+    outline: none;
 }
 
 /* WIN SCREEN */
 
 #win {
     display: none;
+    text-align: center;
+}
+
+#win p {
+    margin: 0 0 2rem 0;
+    font-size: 2.5rem;
+    color: limegreen;
+}
+
+#play-button-win {
+    width: 60%;
+    border: 3px solid white;
+    outline: none;
+}
+
+#play-button-win:hover {
+    border: 3px solid red;
+    color: red;
 }
 
 /* LOSE SCREEN */
 
 #lose {
     display: none;
+    text-align: center;
+}
+
+#lose p {
+    margin: 0 0 2rem 0;
+    font-size: 2.25rem;
+    color: red;
+}
+
+#play-button-lose {
+    width: 60%;
+    border: 3px solid white;
+    outline: none;
+}
+
+#play-button-lose:hover {
+    border: 3px solid red;
+    color: red;
 }
