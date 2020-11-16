@@ -28,9 +28,9 @@ const playButtonLoseDOM = document.getElementById("play-button-lose");
 // VARIABLES
 
 // BAR STATUSES
-let fearStatus = 5;
-let greedStatus = 5;
-let angerStatus = 5;
+let fearStatus = 2;
+let greedStatus = 2;
+let angerStatus = 2;
 
 // CHOICES
 let playerChoice = 0;
@@ -81,13 +81,13 @@ function battleSetup(){
     loseDOM.style.display = "none";
     fearBarDOM.style.backgroundColor = "yellow";
     fearBarDOM.style.height = "50%";
-    fearStatus = 5;
+    fearStatus = 2;
     greedBarDOM.style.backgroundColor = "yellow";
     greedBarDOM.style.height = "50%";
-    greedStatus = 5;
+    greedStatus = 2;
     angerBarDOM.style.backgroundColor = "yellow";
     angerBarDOM.style.height = "50%";
-    angerStatus = 5;
+    angerStatus = 2;
     battleDOM.style.display = "unset";
 };
 
@@ -140,13 +140,13 @@ function right(){
 
 // WRONG
 function wrong(){
-    if(demonChoice == 0 && fearStatus <= 9){
+    if(demonChoice == 0 && fearStatus <= 3){
         fearStatus++;
         increaseBar(fearBarDOM, fearStatus);
-    } else if(demonChoice == 1 && greedStatus <= 9){
+    } else if(demonChoice == 1 && greedStatus <= 3){
         greedStatus++;
         increaseBar(greedBarDOM, greedStatus);
-    } else if(demonChoice == 2 && angerStatus <= 9){
+    } else if(demonChoice == 2 && angerStatus <= 3){
         angerStatus++;
         increaseBar(angerBarDOM, angerStatus);
     }
@@ -154,21 +154,21 @@ function wrong(){
 
 // INCREASE A BAR
 function increaseBar(bar, status) {
-    bar.style.height = String(status * 10) + "%";
+    bar.style.height = String(status * 25) + "%";
     barColor(bar, status);
 };
 
 // DECREASE A BAR
 function decreaseBar(bar, status) {
-    bar.style.height = String(status * 10) + "%";
+    bar.style.height = String(status * 25) + "%";
     barColor(bar, status);
 };
 
 // CHANGE BAR COLOR
 function barColor(bar, status){
-    if(status <= 3){
+    if(status <= 1){
         bar.style.backgroundColor = "red";
-    } else if(status >= 7){
+    } else if(status >= 3){
         bar.style.backgroundColor = "limegreen";
     } else {
         bar.style.backgroundColor = "yellow";
@@ -185,7 +185,7 @@ function checkWin(){
 
 // CHECK FOR LOSE
 function checkLose(){
-    if(fearStatus == 10 && greedStatus == 10 && angerStatus == 10){
+    if(fearStatus == 4 && greedStatus == 4 && angerStatus == 4){
         return true;
     }
     return false;
