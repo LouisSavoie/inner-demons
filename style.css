@@ -4,10 +4,10 @@ body {
 }
 
 #game-screen {
-    width: 200px;
-    max-width: 200px;
-    height: 200px;
-    max-height: 200px;
+    width: 400px;
+    max-width: 400px;
+    height: 400px;
+    max-height: 400px;
     padding: 16px;
     display: flex;
     justify-content: center;
@@ -24,23 +24,24 @@ body {
 
 h1 {
     margin: 0;
+    font-size: 3.5rem;
     color: red;
 }
 
 #title img {
     margin: 0 auto 0 auto;
-    height: 80px;
+    height: 140px;
     display: block;
 }
 
 #play-button-title {
     width: 60%;
-    border: 3px solid white;
+    border: 6px solid white;
     outline: none;
 }
 
 #play-button-title:hover {
-    border: 3px solid red;
+    border: 6px solid red;
     color: red;
 }
 
@@ -52,18 +53,18 @@ h1 {
 }
 
 #info p {
-    font-size: 14px;
+    font-size: 1.5rem;
     color: white;
 }
 
 #play-button-info {
     width: 80%;
-    border: 3px solid white;
+    border: 6px solid white;
     outline: none;
 }
 
 #play-button-info:hover {
-    border: 3px solid red;
+    border: 6px solid red;
     color: red;
 }
 
@@ -74,30 +75,30 @@ h1 {
 }
 
 #meters {
-    padding: 0 0 16px 0;
+    padding: 0;
     display: flex;
     justify-content: space-around;
 }
 
 .meter {
-    margin: 1px;
-    height: 100px;
-    width: 20px;
+    margin: 2rem;
+    height: 200px;
+    width: 40px;
     display: flex;
     align-items: flex-end;
     background: black;
 }
 
 #fear-meter {
-    border: 3px solid purple;
+    border: 6px solid purple;
 }
 
 #greed-meter {
-    border: 3px solid gold;
+    border: 6px solid gold;
 }
 
 #anger-meter {
-    border: 3px solid rgb(202, 30, 30);
+    border: 6px solid rgb(202, 30, 30);
 }
 
 .bar {
@@ -108,29 +109,30 @@ h1 {
 
 #buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 button {
     margin: 0;
-    width: 65px;
+    width: 100px;
     background: black;
     line-height: 2;
+    font-size: 1.5rem;
     color: white;
 }
 
 #fear-button {
-    border: 3px solid purple;
+    border: 6px solid purple;
     outline: none;
 }
 
 #greed-button {
-    border: 3px solid gold;
+    border: 6px solid gold;
     outline: none;
 }
 
 #anger-button {
-    border: 3px solid rgb(202, 30, 30);
+    border: 6px solid rgb(202, 30, 30);
     outline: none;
 }
 
@@ -143,18 +145,18 @@ button {
 
 #win p {
     margin: 0 0 2rem 0;
-    font-size: 2.5rem;
+    font-size: 4rem;
     color: limegreen;
 }
 
 #play-button-win {
-    width: 60%;
-    border: 3px solid white;
+    width: 80%;
+    border: 6px solid white;
     outline: none;
 }
 
 #play-button-win:hover {
-    border: 3px solid red;
+    border: 6px solid red;
     color: red;
 }
 
@@ -167,17 +169,17 @@ button {
 
 #lose p {
     margin: 0 0 2rem 0;
-    font-size: 2.25rem;
+    font-size: 4rem;
     color: red;
 }
 
 #play-button-lose {
-    width: 60%;
-    border: 3px solid white;
+    width: 80%;
+    border: 6px solid white;
     outline: none;
 }
 
 #play-button-lose:hover {
-    border: 3px solid red;
+    border: 6px solid red;
     color: red;
 }
