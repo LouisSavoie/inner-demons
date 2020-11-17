@@ -1,0 +1,22 @@
+{
+  "name": "inner-demons",
+  "version": "1.0.0",
+  "description": "An original guessing game made as an inroduction to electron.js.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LouisSavoie/inner-demons.git"
+  },
+  "author": "Louis Savoie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LouisSavoie/inner-demons/issues"
+  },
+  "homepage": "https://github.com/LouisSavoie/inner-demons#readme",
+  "devDependencies": {
+    "electron": "^11.0.0"
+  }
+}
